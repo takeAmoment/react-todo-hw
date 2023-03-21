@@ -1,5 +1,5 @@
 header{
-    border-bottom: 0.3rem solid var(--header-bg);
+    border-bottom: 0.3rem solid var(--primary);
 }
 .header__menu {
     padding: 1rem;
@@ -12,7 +12,8 @@ header{
     gap: 2rem;
 }
 .link {
-    color: var(--header-bg);
+    color: var(--primary);
     font-size: 1.8rem;
+    font-weight: 700;
     font-family: 'Charis SIL', serif;
 }

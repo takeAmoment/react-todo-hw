@@ -1,0 +1,76 @@
+main{
+    min-height: 85vh;
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-image: url(../../assets/images/checklist.jpg);
+    background-position: bottom left;
+    background-size: 30rem 20rem;
+}
+.main__contant {
+    margin-top: 2rem;
+    padding: 1rem;
+}
+.title {
+    text-align: center;
+    font-size: 2.4rem;
+}
+.subtitle {
+    text-align: center;
+    font-size: 1.8rem;
+}
+.task__container {
+    margin-top: 3rem;
+    width: 35rem;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: #531dab;
+    border-top-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+
+}
+.task__description {
+    color: #f9f0ff;
+    font-size: 1.6rem;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+.input {
+    width: 20rem;
+    height: 3rem;
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    padding: 0 1rem;
+}
+.error {
+    height: 1.5rem;
+    color: red;
+    font-size: 1.2rem;
+}
+.button {
+    width: 10rem;
+    padding: 0.5rem;
+    background-color: #b37feb;
+    outline: none;
+    border: 0.2rem solid #f9f0ff;
+    color: #f9f0ff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+button:hover {
+    transition: all 0.4s;
+    transform: translateY(0.1rem);
+    opacity: 0.8;
+}
