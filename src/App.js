@@ -1,12 +1,16 @@
-import { BrowserRouter } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "./components";
+import { MainPage, TodoPage } from "./pages";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
-        <Layout />
-      </div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MainPage />} />
+          <Route path="/todo" element={<TodoPage />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 }
