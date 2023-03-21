@@ -1,0 +1,18 @@
+header{
+    border-bottom: 0.3rem solid var(--header-bg);
+}
+.header__menu {
+    padding: 1rem;
+}
+.menu__list {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+.link {
+    color: var(--header-bg);
+    font-size: 1.8rem;
+    font-family: 'Charis SIL', serif;
+}
