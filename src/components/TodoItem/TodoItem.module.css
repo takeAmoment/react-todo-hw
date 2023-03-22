@@ -29,7 +29,26 @@
     font-size: 1.8rem;
     width: 100%;
 }
+.delete__btn,
+.edit__btn {
+    width: 10rem;
+    padding: 0.5rem;
+    font-size: 1.6rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.delete__btn{
+    border: 2px solid var(--danger);
+    color: var(--danger);
+}
+.edit__btn {
+    border: 2px solid var(--edit);
+    color: var(--edit);
+}
 .task__icon {
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.6rem;
+    margin-right: 0.5rem;
 }

@@ -21,9 +21,14 @@ export const todosSlice = createSlice({
         return todo;
       });
     },
+    deleteTodo: (state, action) => {
+      state.todoList = state.todoList.filter(
+        (todo) => todo.id !== action.payload
+      );
+    },
   },
 });
 
-export const { addTodo, changeActive } = todosSlice.actions;
+export const { addTodo, changeActive, deleteTodo } = todosSlice.actions;
 
 export default todosSlice.reducer;

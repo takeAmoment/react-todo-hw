@@ -1,7 +1,7 @@
 import { MdDeleteOutline } from "react-icons/md";
 import { AiOutlineEdit } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { changeActive } from "../../features/todos.slice";
+import { changeActive, deleteTodo } from "../../features/todos.slice";
 import styles from "./TodoItem.module.css";
 
 export function TodoItem({ task }) {
@@ -17,6 +17,10 @@ export function TodoItem({ task }) {
     dispatch(changeActive(task.id));
   }
 
+  function deleteTask() {
+    dispatch(deleteTodo(task.id));
+  }
+
   return (
     <div className={checkStyle()}>
       <div
@@ -29,16 +33,18 @@ export function TodoItem({ task }) {
         <p className={styles.task__description}>{task.name}</p>
       </div>
       <div className={styles.task__controllers}>
-        <MdDeleteOutline
-          color="red"
-          className={styles.task__icon}
-          title="Delete"
-        />
-        <AiOutlineEdit
-          color="orange"
-          className={styles.task__icon}
-          title="Edit"
-        />
+        <button
+          type="button"
+          className={styles.delete__btn}
+          onClick={() => deleteTask()}
+        >
+          <MdDeleteOutline color="red" className={styles.task__icon} />
+          Delete
+        </button>
+        <button type="button" className={styles.edit__btn}>
+          <AiOutlineEdit color="green" className={styles.task__icon} />
+          Edit
+        </button>
       </div>
     </div>
   );

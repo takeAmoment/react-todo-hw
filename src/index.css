@@ -1,6 +1,8 @@
 :root {
   --primary: #391085;
   --primary-light: #f9f0ff;
+  --danger: #ff7875;
+  --edit: #5cdbd3;
 }
 
 *,
