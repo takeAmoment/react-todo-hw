@@ -1,0 +1,15 @@
+.field {
+    display: flex;
+    flex-direction: column;
+}
+.input {
+    width: 30rem;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    padding: 0 1rem;
+}
+.error {
+    height: 1.5rem;
+    color: red;
+    font-size: 1.2rem;
+}
