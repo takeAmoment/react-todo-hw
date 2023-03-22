@@ -10,6 +10,7 @@ export const usernameSlice = createSlice({
   reducers: {
     addUsername: (state, action) => {
       state.username = action.payload;
+      localStorage.setItem("username", action.payload);
     },
   },
 });

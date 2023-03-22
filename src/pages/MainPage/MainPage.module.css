@@ -1,18 +1,21 @@
 .main{
     min-height: 85vh;
     font-family: 'Source Sans Pro', sans-serif;
-    display: flex;
-    justify-content: center;
     background-repeat: no-repeat;
     background-image: url(../../assets/images/checklist.jpg);
     background-position: bottom left;
-    background-size: 50rem 30rem;
+    background-size: 50rem 35rem;
 }
 .main__contant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     margin-top: 2rem;
     padding: 1rem;
 }
 .title {
+    width: 100%;
     text-align: center;
     font-size: 3.2rem;
 }
@@ -22,7 +25,7 @@
 }
 .task__container {
     margin-top: 4rem;
-    width: 40rem;
+    width: 42rem;
     display: flex;
     gap: 1rem;
     flex-direction: column;
@@ -32,10 +35,16 @@
     background-color: #531dab;
     border-top-left-radius: 5rem;
     border-bottom-right-radius: 5rem;
-
+}
+@media (max-width: 500px) {
+    .task__container {
+        width: 95%;
+    }
 }
 .task__description {
     color: #f9f0ff;
+    text-align: center;
+    padding: 0 0.5rem;
     font-size: 1.8rem;
     font-weight: 700;
 }
