@@ -11,6 +11,10 @@
 .task.inactive {
     opacity: 0.5;
 }
+.description__block{
+    cursor: pointer;
+    width: 80%;
+}
 
 .task__controllers{
     display: flex;
@@ -23,6 +27,7 @@
 }
 .task__description {
     font-size: 1.8rem;
+    width: 100%;
 }
 .task__icon {
     cursor: pointer;
