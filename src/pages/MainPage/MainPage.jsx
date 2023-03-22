@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./MainPage.module.css";
+import { InputField, Button } from "../../components";
 
 export function MainPage() {
   const [name, setName] = useState("");
@@ -57,19 +58,20 @@ export function MainPage() {
             Your first task to add your name!!
           </p>
           <div className={styles.form}>
-            <div className={styles.field}>
-              <input
-                type="text"
-                className={styles.input}
-                value={name}
-                onChange={handleChange}
-                maxLength="20"
-              />
-              <p className={styles.error}>{isShow && error}</p>
-            </div>
-            <button type="button" className={styles.button} onClick={saveName}>
-              Add
-            </button>
+            <InputField
+              type="text"
+              value={name}
+              onChange={(e) => handleChange(e)}
+              maxLength="20"
+              error={error}
+              isShow={isShow}
+            />
+            <Button
+              type="button"
+              nameOfClass={styles.button}
+              onClick={() => saveName()}
+              text="Add"
+            />
           </div>
         </div>
       </div>

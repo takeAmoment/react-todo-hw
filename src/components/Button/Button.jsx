@@ -1,7 +1,12 @@
-export function Button({ type, text, nameOfClass, disabled }) {
+export function Button({ type, text, nameOfClass, disabled, onClick }) {
   return (
-    // eslint-disable-next-line react/button-has-type
-    <button type={type} className={nameOfClass} disabled={disabled}>
+    <button
+      // eslint-disable-next-line react/button-has-type
+      type={type}
+      className={nameOfClass}
+      disabled={disabled}
+      onClick={onClick}
+    >
       {text}
     </button>
   );
