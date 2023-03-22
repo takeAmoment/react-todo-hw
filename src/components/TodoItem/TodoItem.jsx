@@ -11,24 +11,18 @@ export function TodoItem({ task }) {
   }
   return (
     <div className={checkStyle()}>
-      <h4 className={styles.task__name}>
-        {task.id}
-        {task.name}
-      </h4>
-      <div className={styles.task__body}>
-        <p className={styles.task__description}>{task.description}</p>
-        <div className={styles.task__controllers}>
-          <MdDeleteOutline
-            color="red"
-            className={styles.task__icon}
-            title="Delete"
-          />
-          <AiOutlineEdit
-            color="orange"
-            className={styles.task__icon}
-            title="Edit"
-          />
-        </div>
+      <p className={styles.task__description}>{task.name}</p>
+      <div className={styles.task__controllers}>
+        <MdDeleteOutline
+          color="red"
+          className={styles.task__icon}
+          title="Delete"
+        />
+        <AiOutlineEdit
+          color="orange"
+          className={styles.task__icon}
+          title="Edit"
+        />
       </div>
     </div>
   );

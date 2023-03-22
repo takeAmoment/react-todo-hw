@@ -1,17 +1,6 @@
 .task {
     width: 45rem;
     border: 2px solid var(--primary);
-}
-.task.inactive {
-    opacity: 0.5;
-}
-.task__name {
-    font-size: 2.0rem;
-    padding: 0.5rem;
-    background-color: var(--primary);
-    color: var(--primary-light);
-}
-.task__body {
     display: flex;
     padding: 1rem;
     flex-direction: row;
@@ -19,6 +8,10 @@
     align-items: center;
     min-height: 5rem;
 }
+.task.inactive {
+    opacity: 0.5;
+}
+
 .task__controllers{
     display: flex;
     flex-direction: column;
