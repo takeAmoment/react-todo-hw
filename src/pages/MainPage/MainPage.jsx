@@ -48,7 +48,7 @@ export function MainPage() {
   }
 
   return (
-    <main>
+    <main className={styles.main}>
       <div className={styles.main__contant}>
         <h1 className={styles.title}>Hello, friend!</h1>
         <h3 className={styles.subtitle}>Lets get to know each other</h3>
