@@ -1,13 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
-import { addTodo } from "../../features/todos.slice";
+import { useEffect, useState } from "react";
+import { addTodo, changeTask } from "../../features/todos.slice";
 import styles from "./TodoPage.module.css";
 import { TodoItem, InputField, Button } from "../../components";
 
 export function TodoPage() {
-  const { todoList } = useSelector((state) => state.todos);
+  const { todoList, todoForEdit } = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   const [task, setTask] = useState("");
+
+  useEffect(() => {
+    if (todoForEdit) {
+      setTask(todoForEdit.name);
+    }
+  }, [todoForEdit]);
 
   function handleChange(e) {
     const { value } = e.target;
@@ -26,6 +32,10 @@ export function TodoPage() {
     setTask("");
   }
 
+  function changeTodo() {
+    dispatch(changeTask(task));
+    setTask("");
+  }
   return (
     <main className={styles.todo__page}>
       <div className={styles.page__container}>
@@ -35,12 +45,21 @@ export function TodoPage() {
             value={task}
             onChange={(e) => handleChange(e)}
           />
-          <Button
-            type="button"
-            nameOfClass={styles.button}
-            text="Add"
-            onClick={() => createTask()}
-          />
+          {!todoForEdit ? (
+            <Button
+              type="button"
+              nameOfClass={styles.button}
+              text="Add"
+              onClick={() => createTask()}
+            />
+          ) : (
+            <Button
+              type="button"
+              nameOfClass={styles.button}
+              text="Edit"
+              onClick={() => changeTodo()}
+            />
+          )}
         </div>
         <div className={styles.tabs}>
           <div className={styles.tab}>

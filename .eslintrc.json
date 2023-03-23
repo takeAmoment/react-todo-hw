@@ -27,6 +27,7 @@
         "import/export": 0,
         "import/named" : 0,
         "import/no-cycle": 0,
+        "operator-linebreak": "off",
         "no-param-reassign": "off",
         "object-curly-newline": "off",
         "import/prefer-default-export": ["off"],

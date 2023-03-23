@@ -6,7 +6,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    min-height: 5rem;
+    min-height: 10rem;
 }
 .task.inactive {
     opacity: 0.5;
