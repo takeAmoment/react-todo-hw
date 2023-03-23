@@ -5,6 +5,7 @@ const { createSlice } = require("@reduxjs/toolkit");
 const initialState = {
   todoList,
   todoForEdit: null,
+  filterValue: "all",
 };
 
 export const todosSlice = createSlice({
@@ -39,6 +40,9 @@ export const todosSlice = createSlice({
       });
       state.todoForEdit = null;
     },
+    changeFilterValue: (state, action) => {
+      state.filterValue = action.payload;
+    },
   },
 });
 
@@ -48,7 +52,7 @@ export const {
   deleteTodo,
   setTodoForEdit,
   changeTask,
-  filterList,
+  changeFilterValue,
 } = todosSlice.actions;
 
 export default todosSlice.reducer;
