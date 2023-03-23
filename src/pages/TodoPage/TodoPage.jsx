@@ -2,11 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { addTodo, changeTask } from "../../features/todos.slice";
 import styles from "./TodoPage.module.css";
-import { TodoItem, InputField, Button } from "../../components";
+import { TodoItem, InputField, Button, TabContainer } from "../../components";
 
 export function TodoPage() {
-  const { todoForEdit, todoList } = useSelector((state) => state.todos);
-  const [mode, setMode] = useState("all");
+  const { todoForEdit, todoList, filterValue } = useSelector(
+    (state) => state.todos
+  );
   const dispatch = useDispatch();
   const [task, setTask] = useState("");
   const [list, setList] = useState(todoList);
@@ -18,14 +19,14 @@ export function TodoPage() {
   }, [todoForEdit]);
 
   useEffect(() => {
-    if (mode === "active") {
+    if (filterValue === "active") {
       filterTodoList(true);
-    } else if (mode === "inactive") {
+    } else if (filterValue === "inactive") {
       filterTodoList(false);
     } else {
       setList(todoList);
     }
-  }, [mode, todoList]);
+  }, [filterValue, todoList]);
 
   function filterTodoList(isActive) {
     setList(todoList.filter((item) => item.active === isActive));
@@ -77,32 +78,7 @@ export function TodoPage() {
             />
           )}
         </div>
-        <div className={styles.tabs}>
-          <div
-            className={
-              mode === "active" ? `${styles.tab} ${styles.active}` : styles.tab
-            }
-            role="button"
-            tabIndex={0}
-            onKeyDown={() => setMode("active")}
-            onClick={() => setMode("active")}
-          >
-            <span>Active</span>
-          </div>
-          <div
-            className={
-              mode === "inactive"
-                ? `${styles.tab} ${styles.active}`
-                : styles.tab
-            }
-            role="button"
-            onKeyDown={() => setMode("inactive")}
-            tabIndex={0}
-            onClick={() => setMode("inactive")}
-          >
-            <span>Inactive</span>
-          </div>
-        </div>
+        <TabContainer />
         <div className={styles.todos__container}>
           {list.length > 0 ? (
             <ul className={styles.todos}>

@@ -3,3 +3,4 @@ export * from "./Layout/Layout";
 export * from "./TodoItem/TodoItem";
 export * from "./Button/Button";
 export * from "./Fields/InputField/InputField";
+export * from "./TabContainer/TabContainer";
