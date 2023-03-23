@@ -11,6 +11,7 @@ export function MainPage() {
   const [isValid, setIsValid] = useState(false);
   const [error, setError] = useState("* Fill this field!");
   const [isShow, setIsShow] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,6 +37,12 @@ export function MainPage() {
     const { value } = e.target;
     setName(value);
     checkIsError(value);
+
+    if (value.trim().length > 0) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
   }
 
   function saveName() {
@@ -44,6 +51,7 @@ export function MainPage() {
       setIsShow(false);
       setIsValid(false);
       setError("* Fill this field!");
+      setIsDisabled(true);
       setName("");
       dispatch(addUsername(name));
     } else {
@@ -81,6 +89,7 @@ export function MainPage() {
               type="button"
               nameOfClass={styles.button}
               onClick={() => saveName()}
+              disabled={isDisabled}
               text={username ? "Change" : "Add"}
             />
           </div>
