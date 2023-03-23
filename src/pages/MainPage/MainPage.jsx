@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUsername } from "../../features/username.slice";
 import styles from "./MainPage.module.css";
@@ -13,6 +14,7 @@ export function MainPage() {
   const [isShow, setIsShow] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     checkIsValid();
@@ -54,6 +56,7 @@ export function MainPage() {
       setIsDisabled(true);
       setName("");
       dispatch(addUsername(name));
+      navigate("/todo");
     } else {
       setIsShow(true);
     }
@@ -63,8 +66,9 @@ export function MainPage() {
     <main className={styles.main}>
       <div className={styles.main__contant}>
         <h1 className={styles.title}>
-          Hello,&nbsp;
-          {` ${username}` || " friend"}
+          Hello,
+          {"  "}
+          {username || " friend"}
           !!!
         </h1>
         {!username && (
