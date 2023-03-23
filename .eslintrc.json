@@ -29,15 +29,17 @@
         "import/no-cycle": 0,
         "operator-linebreak": "off",
         "no-param-reassign": "off",
+        "implicit-arrow-linebreak": "off",
+        "no-confusing-arrow": "off",
         "object-curly-newline": "off",
         "import/prefer-default-export": ["off"],
         "quotes": ["error", "double"],
         "no-use-before-define": "off",
         "react/prop-types": "off",
         "react/display-name": "off",
-        "@typescript-eslint/explicit-function-return-type": "off",
         "prettier/prettier": ["error", { "endOfLine": "auto" }],
         "react/jsx-uses-react": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-curly-newline": "off"
     }
 }

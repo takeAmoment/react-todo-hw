@@ -2,18 +2,25 @@ header{
     border-bottom: 0.3rem solid var(--primary);
 }
 .header__menu {
-    padding: 1rem;
+    padding: 1rem 2rem;
 }
 .menu__list {
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: center;
-    gap: 2rem;
+    gap: 4rem;
 }
 .link {
     color: var(--primary);
-    font-size: 1.8rem;
+    font-size: 2.4rem;
     font-weight: 700;
     font-family: 'Charis SIL', serif;
+}
+.link:hover {
+    transition: all 0.5s;
+    color: #9254de;
+
+}
+.link.active {
+    color: #9254de;
 }
