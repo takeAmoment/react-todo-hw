@@ -42,7 +42,13 @@ export const todosSlice = createSlice({
   },
 });
 
-export const { addTodo, changeActive, deleteTodo, setTodoForEdit, changeTask } =
-  todosSlice.actions;
+export const {
+  addTodo,
+  changeActive,
+  deleteTodo,
+  setTodoForEdit,
+  changeTask,
+  filterList,
+} = todosSlice.actions;
 
 export default todosSlice.reducer;

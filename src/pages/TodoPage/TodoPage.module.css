@@ -11,7 +11,7 @@
     padding: 3rem 1rem;
 }
 .tabs{
-    width: 15rem;
+    width: 20rem;
     height: 3.5rem;
     border: 3px solid var(--primary);
     border-radius: 5rem;
@@ -24,14 +24,16 @@
     width: 100%;
     height: 100%;
     font-size: 1.6rem;
-    border-top-right-radius: 5rem;
-    border-bottom-right-radius: 5rem;
+    border-radius: 5rem;
+    border-radius: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
 .tab.active {
+    transition: all 0.4s;
+    transform: scale(1.15);
     background-color: var(--primary);
     color: var(--primary-light);
 }
