@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUsername } from "../../features/username.slice";
 import styles from "./MainPage.module.css";
 import { InputField, Button } from "../../components";
+import { checkUsername } from "../../utilities/checkValidation";
 
 export function MainPage() {
   const { username } = useSelector((state) => state.username);
@@ -25,15 +26,8 @@ export function MainPage() {
   }
 
   function checkIsError(value) {
-    if (value.trim().length === 0) {
-      setError("* Fill this field!");
-    } else if (!value.match(/[a-zа-я ]+$/iu)) {
-      setError("* Only letters!");
-    } else if (value.trim().length < 3) {
-      setError("* At least 3 letters!");
-    } else {
-      setError("");
-    }
+    const message = checkUsername(value);
+    setError(message);
 
     checkIsValid();
   }
