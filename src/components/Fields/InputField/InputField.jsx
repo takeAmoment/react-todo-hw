@@ -17,7 +17,7 @@ export function InputField({
         onChange={onChange}
         maxLength={maxLength}
       />
-      <p className={styles.error}>{isShow ? error : ""}</p>
+      {error && <p className={styles.error}>{isShow ? error : ""}</p>}
     </div>
   );
 }

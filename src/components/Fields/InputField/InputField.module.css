@@ -1,19 +1,24 @@
 .field {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 30rem;
+}
+@media (max-width: 500px) {
+    .field{
+        min-width: 95%;
+    }
 }
 .input {
-    width: 32rem;
+    width: 100%;
     height: 4rem;
     border-radius: 1rem;
     font-size: 1.8rem;
     padding: 0 1rem;
 }
-@media (max-width: 400px) {
-    .input{
-        width: 100%;
-    }
-}
+
 .error {
     padding: 0.3rem 0rem;
     height: 1.5rem;
