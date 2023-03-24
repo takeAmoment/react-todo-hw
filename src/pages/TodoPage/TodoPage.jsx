@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { addTodo, changeTask } from "../../features/todos.slice";
+import { addTodo, changeTask, cancelEdition } from "../../features/todos.slice";
 import styles from "./TodoPage.module.css";
 import { TodoItem, InputField, Button, TabContainer } from "../../components";
 
@@ -16,6 +16,8 @@ export function TodoPage() {
   useEffect(() => {
     if (todoForEdit) {
       setTaskName(todoForEdit.name);
+    } else {
+      setTaskName("");
     }
   }, [todoForEdit]);
 
@@ -65,6 +67,10 @@ export function TodoPage() {
     reset();
   }
 
+  function cancel() {
+    dispatch(cancelEdition());
+  }
+
   return (
     <main className={styles.todo__page}>
       <div className={styles.page__container}>
@@ -83,13 +89,21 @@ export function TodoPage() {
               disabled={isDisabled}
             />
           ) : (
-            <Button
-              type="button"
-              nameOfClass={styles.button}
-              text="Edit"
-              onClick={() => changeTodo()}
-              disabled={isDisabled}
-            />
+            <div className={styles.edit__buttons}>
+              <Button
+                type="button"
+                nameOfClass={styles.button}
+                text="Edit"
+                onClick={() => changeTodo()}
+                disabled={isDisabled}
+              />
+              <Button
+                type="button"
+                nameOfClass={styles.button_cancel}
+                text="Cancel"
+                onClick={() => cancel()}
+              />
+            </div>
           )}
         </div>
         <TabContainer />

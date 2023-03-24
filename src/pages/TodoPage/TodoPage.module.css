@@ -10,33 +10,6 @@
     align-items: center;
     padding: 3rem 1rem;
 }
-.tabs{
-    width: 20rem;
-    height: 3.5rem;
-    border: 3px solid var(--primary);
-    border-radius: 5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-.tab{
-    flex: 0 0 50%;
-    width: 100%;
-    height: 100%;
-    font-size: 1.6rem;
-    border-radius: 5rem;
-    border-radius: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-.tab.active {
-    transition: all 0.4s;
-    transform: scale(1.15);
-    background-color: var(--primary);
-    color: var(--primary-light);
-}
 .todos {
     margin-top: 3rem;
     width: 50rem;
@@ -59,16 +32,28 @@
     padding: 2rem 1rem 1rem 1rem;
 }
 
-.button {
+.edit__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.button,
+.button_cancel {
     width: 10rem;
     padding: 0.5rem;
-    background-color: #b37feb;
     outline: none;
     border: 0.2rem solid #f9f0ff;
     color: #f9f0ff;
     font-size: 1.6rem;
     font-weight: 700;
     cursor: pointer;
+}
+.button {
+    background-color: #b37feb;
+}
+.button_cancel {
+    background-color: #531dab;
 }
 button:hover {
     transition: all 0.4s;
