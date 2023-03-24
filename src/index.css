@@ -1,5 +1,10 @@
 :root {
-  --primary: #391085;
+  --primary-stong-dark: #22075e;
+  --primary-dark: #391085;
+  --primary: #531dab;
+  --primary-medium: #9254de;
+  --primary-medium-light: #efdbff;
+  --primary-button: #b37feb;
   --primary-light: #f9f0ff;
   --danger: #ff7875;
   --edit: #5cdbd3;

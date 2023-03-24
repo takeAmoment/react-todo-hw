@@ -78,7 +78,7 @@ export function TodoItem({ task }) {
               className={styles.edit__btn}
               onClick={() => editTask()}
             >
-              <AiOutlineEdit color="green" className={styles.task__icon} />
+              <AiOutlineEdit color="#5cdbd3" className={styles.task__icon} />
               Edit
             </button>
           )}

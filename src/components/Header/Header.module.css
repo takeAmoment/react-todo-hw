@@ -1,5 +1,5 @@
 header{
-    border-bottom: 0.3rem solid var(--primary);
+    box-shadow: 0rem 0rem 0.3rem 0.3rem var(--primary-dark);
 }
 .header__menu {
     padding: 1rem 2rem;
@@ -18,9 +18,9 @@ header{
 }
 .link:hover {
     transition: all 0.5s;
-    color: #9254de;
+    color: var(--primary-medium);
 
 }
 .link.active {
-    color: #9254de;
+    color: var(--primary-medium);
 }

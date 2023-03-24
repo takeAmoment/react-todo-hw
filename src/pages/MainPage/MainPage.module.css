@@ -38,7 +38,7 @@
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
-    background-color: #531dab;
+    background-color: var(--primary);
     border-top-left-radius: 5rem;
     border-bottom-right-radius: 5rem;
 }
@@ -48,7 +48,7 @@
     }
 }
 .task__description {
-    color: #f9f0ff;
+    color: var(--primary-light);
     text-align: center;
     padding: 0 0.5rem;
     font-size: 2.0rem;
@@ -65,10 +65,10 @@
 .button {
     width: 12rem;
     padding: 1rem;
-    background-color: #b37feb;
+    background-color: var(--primary-button);
     outline: none;
-    border: 0.2rem solid #f9f0ff;
-    color: #f9f0ff;
+    border: 0.2rem solid var(--primary-light);
+    color: var(--primary-light);
     font-size: 1.6rem;
     font-weight: 700;
     cursor: pointer;

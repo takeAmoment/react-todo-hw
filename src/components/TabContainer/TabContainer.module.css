@@ -5,22 +5,25 @@
 .tab__wrap li {
     width: 12rem;
     text-align: center;
-    border: 3px solid var(--primary);
-    padding: 13px 15px;
+    border: 0.3rem solid var(--primary-dark);
+    padding: 1.3rem 1.5rem;
     cursor: pointer;
     font-size: 1.6rem;
+    font-weight: 700;
     transition: all 0.2s ease;
 }
 .tab__wrap li:first-child{
     border-top-left-radius: 5rem;
     border-bottom-left-radius: 5rem;
+    border-right: 0;
 }
 .tab__wrap li:last-child{
     border-top-right-radius: 5rem;
     border-bottom-right-radius: 5rem;
+    border-left: 0;
 }
 .tab__wrap li:hover,
 .tab__wrap li.active{
   background: var(--primary);
-  color: #fff;
+  color: var(--primary-light);
 }
