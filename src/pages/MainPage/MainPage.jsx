@@ -68,7 +68,7 @@ export function MainPage() {
         <h1 className={styles.title}>
           Hello,
           {"  "}
-          {username || " friend"}
+          {username.slice(0, 1).toUpperCase() + username.slice(1) || " friend"}
           !!!
         </h1>
         {!username && (
@@ -77,7 +77,7 @@ export function MainPage() {
         <div className={styles.task__container}>
           <p className={styles.task__description}>
             {!username
-              ? "Your first task to add your name!"
+              ? "Your first task is to add your name!"
               : "You can change your name ;)"}
           </p>
           <div className={styles.form}>

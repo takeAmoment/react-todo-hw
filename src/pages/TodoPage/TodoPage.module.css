@@ -11,7 +11,7 @@
     padding: 3rem 1rem;
 }
 .task__form {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     display: flex;
     gap: 2rem;
     align-items: start;
@@ -67,6 +67,10 @@ button:hover {
     opacity: 0.5;
     cursor: default;
     transform: translateY(0.1rem);
+}
+.user__title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 .todos {
     margin-top: 3rem;

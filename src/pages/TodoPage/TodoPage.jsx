@@ -8,6 +8,7 @@ export function TodoPage() {
   const { todoForEdit, todoList, filterValue } = useSelector(
     (state) => state.todos
   );
+  const { username } = useSelector((state) => state.username);
   const dispatch = useDispatch();
   const [taskName, setTaskName] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
@@ -106,6 +107,15 @@ export function TodoPage() {
             </div>
           )}
         </div>
+        <h2 className={styles.user__title}>
+          {username.slice(0, 1).toUpperCase() + username.slice(1)}
+          {"  "}
+          you have
+          {"  "}
+          {todoList.length}
+          {"  "}
+          {todoList.length < 2 ? "task" : "tasks"}
+        </h2>
         <TabContainer />
         <div className={styles.todos__container}>
           {list.length > 0 ? (
