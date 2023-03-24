@@ -7,7 +7,7 @@
   --primary-button: #b37feb;
   --primary-light: #f9f0ff;
   --danger: #ff7875;
-  --edit: #5cdbd3;
+  --edit: #13c2c2;
 }
 
 *,
@@ -45,3 +45,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
