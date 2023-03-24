@@ -9,12 +9,13 @@ export function TodoPage() {
     (state) => state.todos
   );
   const dispatch = useDispatch();
-  const [task, setTask] = useState("");
+  const [taskName, setTaskName] = useState("");
+  const [isDisabled, setIsDisabled] = useState(true);
   const [list, setList] = useState(todoList);
 
   useEffect(() => {
     if (todoForEdit) {
-      setTask(todoForEdit.name);
+      setTaskName(todoForEdit.name);
     }
   }, [todoForEdit]);
 
@@ -32,34 +33,45 @@ export function TodoPage() {
     setList(todoList.filter((item) => item.active === isActive));
   }
 
+  function reset() {
+    setIsDisabled(true);
+    setTaskName("");
+  }
+
   function handleChange(e) {
     const { value } = e.target;
-    setTask(value);
+    setTaskName(value);
+    if (value.trim().length > 0) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
   }
 
   function createTask() {
     const date = new Date();
     const newTask = {
       id: date.getTime(),
-      name: task,
+      name: taskName,
       active: true,
     };
 
     dispatch(addTodo(newTask));
-    setTask("");
+    reset();
   }
 
   function changeTodo() {
-    dispatch(changeTask(task));
-    setTask("");
+    dispatch(changeTask(taskName));
+    reset();
   }
+
   return (
     <main className={styles.todo__page}>
       <div className={styles.page__container}>
         <div className={styles.task__form}>
           <InputField
             type="text"
-            value={task}
+            value={taskName}
             onChange={(e) => handleChange(e)}
           />
           {!todoForEdit ? (
@@ -68,6 +80,7 @@ export function TodoPage() {
               nameOfClass={styles.button}
               text="Add"
               onClick={() => createTask()}
+              disabled={isDisabled}
             />
           ) : (
             <Button
@@ -75,6 +88,7 @@ export function TodoPage() {
               nameOfClass={styles.button}
               text="Edit"
               onClick={() => changeTodo()}
+              disabled={isDisabled}
             />
           )}
         </div>

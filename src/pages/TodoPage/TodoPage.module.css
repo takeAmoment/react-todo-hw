@@ -75,6 +75,11 @@ button:hover {
     transform: translateY(0.1rem);
     opacity: 0.8;
 }
+.button:disabled {
+    opacity: 0.5;
+    cursor: default;
+    transform: translateY(0.1rem);
+}
 .empty__message{
     font-size: 2.4rem;
     margin-top: 3rem;
