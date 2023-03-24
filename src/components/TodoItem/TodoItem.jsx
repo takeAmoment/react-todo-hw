@@ -6,6 +6,7 @@ import {
   changeActive,
   deleteTodo,
   setTodoForEdit,
+  cancelEdition,
 } from "../../features/todos.slice";
 import styles from "./TodoItem.module.css";
 
@@ -13,12 +14,6 @@ export function TodoItem({ task }) {
   const [mode, setMode] = useState("");
   const { todoForEdit } = useSelector((state) => state.todos);
   const dispatch = useDispatch();
-  function checkStyle() {
-    if (!task.active) {
-      return `${styles.task} ${styles.inactive}`;
-    }
-    return `${styles.task}`;
-  }
 
   useEffect(() => {
     if (todoForEdit?.id === task.id) {
@@ -28,13 +23,24 @@ export function TodoItem({ task }) {
     }
   }, [todoForEdit, task]);
 
+  function checkStyle() {
+    if (!task.active) {
+      return `${styles.task} ${styles.inactive}`;
+    }
+    return `${styles.task}`;
+  }
+
   function handleClick() {
     dispatch(changeActive(task.id));
+    if (mode) {
+      dispatch(cancelEdition());
+    }
   }
 
   function deleteTask() {
     dispatch(deleteTodo(task.id));
   }
+
   function editTask() {
     dispatch(setTodoForEdit(task));
   }
@@ -42,7 +48,10 @@ export function TodoItem({ task }) {
   return (
     <div
       className={checkStyle()}
-      style={{ border: mode && "4px solid #5cdbd3" }}
+      style={{
+        border: mode && "0.2rem solid #b5f5ec",
+        backgroundColor: mode && "#e6fffb",
+      }}
     >
       <div
         className={styles.description__block}
@@ -63,14 +72,16 @@ export function TodoItem({ task }) {
             <MdDeleteOutline color="red" className={styles.task__icon} />
             Delete
           </button>
-          <button
-            type="button"
-            className={styles.edit__btn}
-            onClick={() => editTask()}
-          >
-            <AiOutlineEdit color="green" className={styles.task__icon} />
-            Edit
-          </button>
+          {task.active && (
+            <button
+              type="button"
+              className={styles.edit__btn}
+              onClick={() => editTask()}
+            >
+              <AiOutlineEdit color="green" className={styles.task__icon} />
+              Edit
+            </button>
+          )}
         </div>
       )}
     </div>
