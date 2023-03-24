@@ -55,6 +55,12 @@ export function TodoPage() {
     dispatch(cancelEdition());
   }
 
+  function createTitle() {
+    return `${
+      username.slice(0, 1).toUpperCase() + username.slice(1)
+    } you have ${todoList.length} ${todoList.length < 2 ? "task" : "tasks"}`;
+  }
+
   return (
     <main className={styles.todo__page}>
       <div className={styles.page__container}>
@@ -90,15 +96,7 @@ export function TodoPage() {
             </div>
           )}
         </div>
-        <h2 className={styles.user__title}>
-          {username.slice(0, 1).toUpperCase() + username.slice(1)}
-          {"  "}
-          you have
-          {"  "}
-          {todoList.length}
-          {"  "}
-          {todoList.length < 2 ? "task" : "tasks"}
-        </h2>
+        <h2 className={styles.user__title}>{createTitle()}</h2>
         <TabContainer />
         <TodoList />
       </div>
