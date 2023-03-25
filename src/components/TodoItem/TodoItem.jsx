@@ -58,7 +58,6 @@ export function TodoItem({ task }) {
         role="button"
         tabIndex={0}
         onClick={handleClick}
-        onKeyDown={handleClick}
       >
         <p className={styles.task__description}>{task.name}</p>
       </div>

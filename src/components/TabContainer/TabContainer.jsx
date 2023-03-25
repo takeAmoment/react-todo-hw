@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useSelector, useDispatch } from "react-redux";
 import { changeFilterValue } from "../../features/todos.slice";
 import styles from "./TabContainer.module.css";
