@@ -83,3 +83,24 @@
     cursor: default;
     transform: translateY(0.1rem);
 }
+
+
+.button__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.link{
+    color: var(--primary-dark);
+}
+.link__icon{
+    color: var(--primary-dark);
+}
+.link:hover,
+.link__icon:hover{
+    transition: all 0.4s;
+    color: var(--primary-medium);
+}

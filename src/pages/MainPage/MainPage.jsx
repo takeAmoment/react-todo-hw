@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { AiOutlineArrowRight } from "react-icons/ai";
 import { addUsername } from "../../features/username.slice";
 import styles from "./MainPage.module.css";
 import { InputField, Button } from "../../components";
@@ -98,6 +99,14 @@ export function MainPage() {
             />
           </div>
         </div>
+        {username && (
+          <div className={styles.button__link}>
+            <Link to="/todo" className={styles.link}>
+              Go to todo list
+            </Link>
+            <AiOutlineArrowRight className={styles.link__icon} />
+          </div>
+        )}
       </div>
     </main>
   );
