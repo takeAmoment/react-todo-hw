@@ -1,8 +1,19 @@
 header{
     box-shadow: 0rem 0rem 0.3rem 0.3rem var(--primary-dark);
+    min-height: 6rem;
 }
 .header__menu {
     padding: 1rem 2rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+@media (max-width: 500px) {
+    .header__menu{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
 }
 .menu__list {
     display: flex;
@@ -23,4 +34,37 @@ header{
 }
 .link.active {
     color: var(--primary-medium);
+}
+.user__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.user__name {
+    color: var(--primary-dark);
+    font-size: 2.4rem;
+    font-weight: 700;
+    font-family: 'Charis SIL', serif;
+}
+.user__tasks{
+    position: relative;
+}
+.tasks__icon {
+    font-size: 3.6rem;
+    color: var(--primary);
+}
+.tasks__amount {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #ff4d4f;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
 }

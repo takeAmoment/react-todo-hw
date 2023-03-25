@@ -5,8 +5,7 @@ import styles from "./TodoPage.module.css";
 import { InputField, Button, TabContainer, TodoList } from "../../components";
 
 export function TodoPage() {
-  const { todoForEdit, todoList } = useSelector((state) => state.todos);
-  const { username } = useSelector((state) => state.username);
+  const { todoForEdit } = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   const [taskName, setTaskName] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
@@ -55,12 +54,6 @@ export function TodoPage() {
     dispatch(cancelEdition());
   }
 
-  function createTitle() {
-    return `${
-      username.slice(0, 1).toUpperCase() + username.slice(1)
-    } you have ${todoList.length} ${todoList.length < 2 ? "task" : "tasks"}`;
-  }
-
   return (
     <main className={styles.todo__page}>
       <div className={styles.page__container}>
@@ -96,7 +89,6 @@ export function TodoPage() {
             </div>
           )}
         </div>
-        <h2 className={styles.user__title}>{createTitle()}</h2>
         <TabContainer />
         <TodoList />
       </div>
