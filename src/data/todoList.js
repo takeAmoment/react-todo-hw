@@ -1,20 +1,17 @@
 const todoList = [
   {
     id: 0,
-    name: "Create to-do list",
-    description: "Create to-do list",
+    name: "Enjoy this app",
     active: true,
   },
   {
     id: 1,
-    name: "Go to a gym",
-    description: "Find gym",
+    name: "Add name",
     active: false,
   },
   {
     id: 2,
-    name: "Find a job",
-    description: "Find a job",
+    name: "Create your first task",
     active: true,
   },
 ];
