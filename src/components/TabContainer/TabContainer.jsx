@@ -16,6 +16,7 @@ export function TabContainer() {
   function changeFilter(value) {
     dispatch(changeFilterValue(value));
   }
+
   return (
     <ul className={styles.tab__wrap}>
       <li
