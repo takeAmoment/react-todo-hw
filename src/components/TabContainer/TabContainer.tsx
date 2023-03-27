@@ -1,19 +1,21 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../../hooks/reduxHooks";
 import { changeFilterValue } from "../../features/todos.slice";
 import styles from "./TabContainer.module.css";
+import React from "react";
+import { FilterValue } from "../../types/types";
 
-export function TabContainer() {
-  const { filterValue } = useSelector((state) => state.todos);
-  const dispatch = useDispatch();
+export const TabContainer = () => {
+  const { filterValue } = useAppSelector((state) => state.todos);
+  const dispatch = useAppDispatch();
 
-  function checkClassName(type) {
+  function checkClassName(type: FilterValue) {
     if (filterValue === type) {
       return styles.active;
     }
     return styles.item;
   }
 
-  function changeFilter(value) {
+  function changeFilter(value: FilterValue) {
     dispatch(changeFilterValue(value));
   }
 
@@ -36,4 +38,4 @@ export function TabContainer() {
       </li>
     </ul>
   );
-}
+};
