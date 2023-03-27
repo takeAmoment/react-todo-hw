@@ -1,6 +1,6 @@
+import React, { FC } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import { AiOutlineEdit } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import {
   changeActive,
@@ -9,11 +9,13 @@ import {
   cancelEdition,
 } from "../../features/todos.slice";
 import styles from "./TodoItem.module.css";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { TodoItemProps } from "../../types/types";
 
-export function TodoItem({ task }) {
+export const TodoItem: FC<TodoItemProps> = ({ task }) => {
   const [mode, setMode] = useState("");
-  const { todoForEdit } = useSelector((state) => state.todos);
-  const dispatch = useDispatch();
+  const { todoForEdit } = useAppSelector((state) => state.todos);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (todoForEdit?.id === task.id) {
@@ -85,4 +87,4 @@ export function TodoItem({ task }) {
       )}
     </div>
   );
-}
+};
