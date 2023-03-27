@@ -1,8 +1,8 @@
 import todoList from "../data/todoList";
+import { FilterValue, ITodo, TodosInitialState } from "../types/types";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const { createSlice } = require("@reduxjs/toolkit");
-
-const initialState = {
+const initialState: TodosInitialState = {
   todoList,
   todoForEdit: null,
   filterValue: "all",
@@ -12,10 +12,10 @@ export const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    addTodo: (state, action) => {
+    addTodo: (state, action: PayloadAction<ITodo>) => {
       state.todoList = [...state.todoList, action.payload];
     },
-    changeActive: (state, action) => {
+    changeActive: (state, action: PayloadAction<number>) => {
       state.todoList = state.todoList.map((todo) => {
         if (todo.id === action.payload) {
           return { ...todo, active: !todo.active };
@@ -23,24 +23,24 @@ export const todosSlice = createSlice({
         return todo;
       });
     },
-    deleteTodo: (state, action) => {
+    deleteTodo: (state, action: PayloadAction<number>) => {
       state.todoList = state.todoList.filter(
         (todo) => todo.id !== action.payload
       );
     },
-    setTodoForEdit: (state, action) => {
+    setTodoForEdit: (state, action: PayloadAction<ITodo>) => {
       state.todoForEdit = action.payload;
     },
-    changeTask: (state, action) => {
+    changeTask: (state, action: PayloadAction<string>) => {
       state.todoList = state.todoList.map((item) => {
-        if (item.id === state.todoForEdit.id) {
+        if (item.id === state.todoForEdit?.id) {
           return { ...item, name: action.payload };
         }
         return item;
       });
       state.todoForEdit = null;
     },
-    changeFilterValue: (state, action) => {
+    changeFilterValue: (state, action: PayloadAction<FilterValue>) => {
       state.filterValue = action.payload;
     },
     cancelEdition: (state) => {
