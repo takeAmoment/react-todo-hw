@@ -1,8 +1,9 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import image from "../../assets/images/error.jpg";
 import styles from "./ErrorPage.module.css";
 
-export function ErrorPage() {
+export const ErrorPage = () => {
   return (
     <main className={styles.error__page}>
       <div className={styles.error}>
@@ -18,4 +19,4 @@ export function ErrorPage() {
       </div>
     </main>
   );
-}
+};
