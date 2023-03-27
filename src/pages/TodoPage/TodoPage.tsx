@@ -1,12 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { useEffect, useState } from "react";
 import { addTodo, changeTask, cancelEdition } from "../../features/todos.slice";
 import styles from "./TodoPage.module.css";
 import { InputField, Button, TabContainer, TodoList } from "../../components";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 
 export function TodoPage() {
-  const { todoForEdit } = useSelector((state) => state.todos);
-  const dispatch = useDispatch();
+  const { todoForEdit } = useAppSelector((state) => state.todos);
+  const dispatch = useAppDispatch();
   const [taskName, setTaskName] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
 
@@ -23,7 +24,7 @@ export function TodoPage() {
     setTaskName("");
   }
 
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
     setTaskName(value);
     if (value.trim().length > 0) {
