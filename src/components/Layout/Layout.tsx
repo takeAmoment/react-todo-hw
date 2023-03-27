@@ -1,11 +1,12 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
 import { Header } from "../index";
 
-export function Layout() {
+export const Layout = () => {
   return (
     <>
       <Header />
       <Outlet />
     </>
   );
-}
+};
