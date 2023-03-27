@@ -1,10 +1,11 @@
+import React from "react";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../hooks/reduxHooks";
 import { TodoItem } from "../index";
 import styles from "./TodoList.module.css";
 
-export function TodoList() {
-  const { todoList, filterValue } = useSelector((state) => state.todos);
+export const TodoList = () => {
+  const { todoList, filterValue } = useAppSelector((state) => state.todos);
   const [list, setList] = useState(todoList);
 
   useEffect(() => {
@@ -17,7 +18,7 @@ export function TodoList() {
     }
   }, [filterValue, todoList]);
 
-  function filterTodoList(isActive) {
+  function filterTodoList(isActive: boolean) {
     setList(todoList.filter((item) => item.active === isActive));
   }
 
@@ -34,4 +35,4 @@ export function TodoList() {
       )}
     </div>
   );
-}
+};
