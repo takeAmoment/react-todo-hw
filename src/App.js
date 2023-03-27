@@ -1,5 +1,5 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { Layout } from "./components";
+import { Layout, ProtectedRoute } from "./components";
 import { MainPage, TodoPage, ErrorPage } from "./pages";
 
 function App() {
@@ -8,7 +8,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<MainPage />} />
-          <Route path="/todo" element={<TodoPage />} />
+          <Route
+            path="/todo"
+            element={
+              <ProtectedRoute>
+                <TodoPage />
+              </ProtectedRoute>
+            }
+          />
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
