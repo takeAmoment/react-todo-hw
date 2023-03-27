@@ -1,48 +1,51 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
+    "parser": "@typescript-eslint/parser",
     "extends": [
-        "plugin:react/recommended",
-        "prettier",
-        "plugin:react-hooks/recommended",
-        "plugin:prettier/recommended",
-        "airbnb"
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "plugin:react-hooks/recommended",
+      "plugin:prettier/recommended"
     ],
-    "overrides": [
-    ],
+    "env": {
+      "browser": true,
+      "es6": true,
+      "jest": true,
+      "node": true
+    },
+    "root": true,
     "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module"
     },
     "plugins": [
-        "react", "prettier", "react-hooks"
+      "@typescript-eslint", "react", "prettier", "react-hooks"
     ],
     "rules": {
-        "react-hooks/rules-of-hooks": "error",
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "react-hooks/exhaustive-deps": "off",
-        "comma-dangle": ["error", "only-multiline"],
-        "jsx-a11y/click-events-have-key-events": "off",
-        "jsx-a11y/no-noninteractive-element-interactions": "off",
-        "react/jsx-wrap-multilines": "off",
-        "import/export": 0,
-        "import/named" : 0,
-        "import/no-cycle": 0,
-        "operator-linebreak": "off",
-        "no-param-reassign": "off",
-        "implicit-arrow-linebreak": "off",
-        "no-confusing-arrow": "off",
-        "object-curly-newline": "off",
-        "import/prefer-default-export": ["off"],
-        "quotes": ["error", "double"],
-        "no-use-before-define": "off",
-        "react/prop-types": "off",
-        "react/display-name": "off",
-        "prettier/prettier": ["error", { "endOfLine": "auto" }],
-        "react/jsx-uses-react": "off",
-        "react/react-in-jsx-scope": "off",
-        "react/jsx-curly-newline": "off"
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "off",
+      "comma-dangle": ["error", "only-multiline"],
+      "react/prop-types": "off",
+      "react/display-name": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "prettier/prettier": ["error", { "endOfLine": "auto" }],
+      "@typescript-eslint/interface-name-prefix": "off",
+      "@typescript-eslint/ban-ts-comment": "error",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-empty-function": "off",
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/no-var-requires": "off",
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off"
+    },
+    "settings": {
+      "react": {
+        "pragma": "React",
+        "version": "detect"
+      }
     }
-}
+  }
