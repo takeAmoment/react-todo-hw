@@ -12,6 +12,11 @@
     font-weight: 700;
     transition: all 0.2s ease;
 }
+@media (max-width: 400px) {
+    .tab__wrap li{
+        width: 10rem;
+    }
+}
 .tab__wrap li:first-child{
     border-top-left-radius: 5rem;
     border-bottom-left-radius: 5rem;
