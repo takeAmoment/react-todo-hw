@@ -6,7 +6,13 @@
     background-position: bottom left;
     background-size: 50rem 35rem;
 }
-@media (max-width: 500px) {
+@media (max-width: 900px) {
+    .main {
+        background-size: 45rem 30rem;
+    }
+}
+
+@media (max-width: 450px) {
     .main {
         background-position: bottom center;
         background-size: 35rem 25rem;
@@ -92,6 +98,7 @@
     margin-top: 1rem;
     font-size: 1.8rem;
     font-weight: 700;
+    background-color: #fff;
 }
 .link{
     color: var(--primary-dark);
