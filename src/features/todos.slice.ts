@@ -2,7 +2,7 @@ import todoList from "../data/todoList";
 import { FilterValue, ITodo, TodosInitialState } from "../types/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState: TodosInitialState = {
+export const initialState: TodosInitialState = {
   todoList,
   todoForEdit: null,
   filterValue: "all",
@@ -28,7 +28,7 @@ export const todosSlice = createSlice({
         (todo) => todo.id !== action.payload
       );
     },
-    setTodoForEdit: (state, action: PayloadAction<ITodo>) => {
+    setTodoForEdit: (state, action: PayloadAction<ITodo | null>) => {
       state.todoForEdit = action.payload;
     },
     changeTask: (state, action: PayloadAction<string>) => {
@@ -43,9 +43,6 @@ export const todosSlice = createSlice({
     changeFilterValue: (state, action: PayloadAction<FilterValue>) => {
       state.filterValue = action.payload;
     },
-    cancelEdition: (state) => {
-      state.todoForEdit = null;
-    },
   },
 });
 
@@ -56,7 +53,6 @@ export const {
   setTodoForEdit,
   changeTask,
   changeFilterValue,
-  cancelEdition,
 } = todosSlice.actions;
 
 export default todosSlice.reducer;

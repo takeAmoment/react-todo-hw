@@ -6,7 +6,6 @@ import {
   changeActive,
   deleteTodo,
   setTodoForEdit,
-  cancelEdition,
 } from "../../features/todos.slice";
 import styles from "./TodoItem.module.css";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
@@ -35,7 +34,7 @@ export const TodoItem: FC<TodoItemProps> = ({ task }) => {
   function handleClick() {
     dispatch(changeActive(task.id));
     if (mode) {
-      dispatch(cancelEdition());
+      dispatch(setTodoForEdit(null));
     }
   }
 

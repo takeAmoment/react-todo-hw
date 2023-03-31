@@ -1,6 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { addTodo, changeTask, cancelEdition } from "../../features/todos.slice";
+import {
+  addTodo,
+  changeTask,
+  setTodoForEdit,
+} from "../../features/todos.slice";
 import styles from "./TodoPage.module.css";
 import { InputField, Button, TabContainer, TodoList } from "../../components";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
@@ -52,7 +56,7 @@ export function TodoPage() {
   }
 
   function cancel() {
-    dispatch(cancelEdition());
+    dispatch(setTodoForEdit(null));
   }
 
   return (
