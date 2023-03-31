@@ -43,9 +43,6 @@ export const todosSlice = createSlice({
     changeFilterValue: (state, action) => {
       state.filterValue = action.payload;
     },
-    cancelEdition: (state) => {
-      state.todoForEdit = null;
-    },
   },
 });
 
@@ -56,7 +53,6 @@ export const {
   setTodoForEdit,
   changeTask,
   changeFilterValue,
-  cancelEdition,
 } = todosSlice.actions;
 
 export default todosSlice.reducer;
