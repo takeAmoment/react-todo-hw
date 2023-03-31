@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { addUsername } from "../../features/username.slice";
 import styles from "./MainPage.module.css";
 import { InputField, Button } from "../../components";
 import { checkUsername } from "../../utilities/checkValidation";
+import React from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 
-export function MainPage() {
-  const { username } = useSelector((state) => state.username);
+export const MainPage = () => {
+  const { username } = useAppSelector((state) => state.username);
   const [name, setName] = useState("");
   const [isValid, setIsValid] = useState(false);
   const [error, setError] = useState("* Fill this field!");
   const [isShow, setIsShow] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,14 +30,14 @@ export function MainPage() {
     }
   }
 
-  function checkIsError(value) {
+  function checkIsError(value: string) {
     const message = checkUsername(value);
     setError(message);
 
     checkIsValid();
   }
 
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { value } = e.target;
     setName(value);
     checkIsError(value);
@@ -85,7 +86,9 @@ export function MainPage() {
             <InputField
               type="text"
               value={name}
-              onChange={(e) => handleChange(e)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                handleChange(e)
+              }
               maxLength="15"
               error={error}
               isShow={isShow}
@@ -110,4 +113,4 @@ export function MainPage() {
       </div>
     </main>
   );
-}
+};

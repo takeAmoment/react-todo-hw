@@ -1,6 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { UsernameInitialState } from "../types/types";
 
-const initialState = {
+const initialState: UsernameInitialState = {
   username: localStorage.getItem("username") ?? "",
 };
 
@@ -8,7 +9,7 @@ export const usernameSlice = createSlice({
   name: "username",
   initialState,
   reducers: {
-    addUsername: (state, action) => {
+    addUsername: (state, action: PayloadAction<string>) => {
       state.username = action.payload;
       localStorage.setItem("username", action.payload);
     },

@@ -1,11 +1,12 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../hooks/reduxHooks";
 import { NavLink } from "react-router-dom";
 import { BiTask } from "react-icons/bi";
 import styles from "./Header.module.css";
+import React from "react";
 
-export function Header() {
-  const { todoList } = useSelector((state) => state.todos);
-  const { username } = useSelector((state) => state.username);
+export const Header = () => {
+  const { todoList } = useAppSelector((state) => state.todos);
+  const { username } = useAppSelector((state) => state.username);
 
   return (
     <header>
@@ -48,4 +49,4 @@ export function Header() {
       </nav>
     </header>
   );
-}
+};
