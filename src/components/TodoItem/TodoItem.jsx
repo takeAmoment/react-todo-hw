@@ -6,7 +6,6 @@ import {
   changeActive,
   deleteTodo,
   setTodoForEdit,
-  cancelEdition,
 } from "../../features/todos.slice";
 import styles from "./TodoItem.module.css";
 
@@ -33,7 +32,7 @@ export function TodoItem({ task }) {
   function handleClick() {
     dispatch(changeActive(task.id));
     if (mode) {
-      dispatch(cancelEdition());
+      dispatch(setTodoForEdit(null));
     }
   }
 
